@@ -1,5 +1,6 @@
 class TokensController < ApplicationController
   def index
+    @tokens = Tokens.all
   end
 
   def show
