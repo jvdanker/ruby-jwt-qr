@@ -1,0 +1,36 @@
+version: '3.3'
+
+volumes:
+  data: # volume for mariadb
+  cache: # volume for bundle
+
+services:
+  db:
+    image: postgres:11
+    ports:
+      - "5432:5432"
+    volumes:
+      - type: volume
+        source: data
+        target: /var/lib/mysql
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: test
+      MYSQL_ROOT_HOST: '%'
+
+  web:
+    depends_on:
+      - db
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    ports:
+      - "8000:3000"
+    volumes:
+      - type: bind
+        source: ./
+        target: /usr/src/app
+      - type: volume
+        source: cache
+        target: /usr/local/bundle
