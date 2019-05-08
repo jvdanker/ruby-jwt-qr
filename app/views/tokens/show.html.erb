@@ -1,2 +1,15 @@
-<h1>Tokens#show</h1>
-<p>Find me in app/views/tokens/show.html.erb</p>
+<%= link_to "Index", tokens_path %>
+<h1><%= @token.description %></h1>
+<table>
+<tr><td>Description</td><td><%= @token.description %></td></tr>
+<tr><td>Expiration</td><td><%= @token.expiration %></td></tr>
+<tr><td>Status</td><td><%= @token.status %></td></tr>
+<tr><td>Permission</td><td><%= @token.permission %></td></tr>
+<tr><td>Token</td><td><%= @token.token %></td></tr>
+</table>
+
+<%= @token.created_at %>, <%= @token.updated_at %>
+
+<pre>
+<%= flash.notice %>
+</pre>

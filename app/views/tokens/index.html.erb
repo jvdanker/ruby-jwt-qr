@@ -1,8 +1,32 @@
-<h1>Tokens#index</h1>
-<p>Find me in app/views/tokens/index.html.erb</p>
+<h1>Tokens</h1>
 
-<ul>
+<%= flash.notice %>
+
+<table border="1">
+  <tr>
+    <th></th>
+    <th>description</th>
+    <th>expiration</th>
+    <th>status</th>
+    <th>permission</th>
+    <th>token</th>
+    <th colspan="5">actions</th>
+  </tr>
   <% @tokens.each do |token| %>
-    <li><%= link_to token.description, token_path(token)  %></li>
+    <tr>
+        <td><%= button_to 'Validate', validate_token_path(token), method: 'get' %></td>
+        <td><%= token.description %></td>
+        <td><%= token.expiration %></td>
+        <td><%= token.status %></td>
+        <td><%= token.permission %></td>
+        <td><%= token.token %></td>
+        <td><%= button_to 'Show', token_path(token), method: 'get'%></td>
+        <td><%= button_to 'Edit', edit_token_path(token), method: 'get'%></td>
+        <td><%= button_to 'Remove', token_path(token), method: 'delete', data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Revoke', revoke_token_path(token), method: 'get', data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Activate', activate_token_path(token), method: 'get', data: { confirm: 'Are you sure?' } %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
+
+<%= link_to "Create Token", new_token_path %>

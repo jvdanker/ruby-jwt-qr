@@ -2,4 +2,4 @@
 
 #bundle install --path=vendor/cache
 bundle install
-rails server
+bundle exec rails server -b 0.0.0.0

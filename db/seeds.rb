@@ -6,6 +6,5 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Token.create(description: 'govtnz', permissions: 'create', status: 'active', timeout: 600, token: 'abc')
-Token.create(description: 'govtnz', permissions: 'create', status: 'revoked', timeout: 600, token: 'abc')
-Token.create(description: 'govtnz', permissions: 'create', status: 'active', timeout: 600, token: 'abc')
+Token.create(description: 'to submit applications', permission: 'submit_application', status: 'active', expiration: 600, token: '123')
+

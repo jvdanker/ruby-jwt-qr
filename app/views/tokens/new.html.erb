@@ -1,2 +1,11 @@
-<h1>Tokens#new</h1>
-<p>Find me in app/views/tokens/new.html.erb</p>
+<h3>Create a Token</h3>
+<%= form_with model: @token do |form| %>
+  <%= form.text_field :description, placeholder: "Description" %><br />
+  <%= form.text_field :expiration, placeholder: "Expiration" %><br />
+  <%= form.text_field :status, placeholder: "Status" %><br />
+  <%= form.text_field :permission, placeholder: "Permission" %><br />
+
+  <%= form.submit %>
+<% end %>
+
+<%= link_to "Index", tokens_path %>

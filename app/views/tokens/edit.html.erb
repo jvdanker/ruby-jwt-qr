@@ -1,2 +1,13 @@
-<h1>Tokens#edit</h1>
-<p>Find me in app/views/tokens/edit.html.erb</p>
+<%= link_to "Index", tokens_path %>
+<h1>Update Token</h1>
+<%= form_with model: @token do |form| %>
+  <%= form.text_field :description, placeholder: "Description" %><br />
+  <%= form.text_field :expiration, placeholder: "Expiration" %><br />
+  <%= form.text_field :status, placeholder: "Status" %><br />
+  <%= form.text_field :permission, placeholder: "Permission" %><br />
+  <%= form.text_field :token, placeholder: "Token" %><br />
+
+  <%= form.submit %>
+<% end %>
+
+<%= @token.created_at %>, <%= @token.updated_at %>
